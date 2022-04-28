@@ -5,7 +5,7 @@ const versionPath = '/v1';
 
 const messageTransporter = new MessageTransporter();
 const messageRouter = routerV1.route(`${versionPath}/messages`);
-messageRouter.all(messageTransporter.list);
+messageRouter.get(messageTransporter.list);
 messageRouter.post(messageTransporter.create);
 
 export default routerV1;
