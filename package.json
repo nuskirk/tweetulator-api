@@ -2,10 +2,10 @@
   "name": "tweetulator",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "startup-api.js",
   "scripts": {
-    "start": "node build/server.js",
-    "dev": "nodemon server.ts --watch",
+    "start": "node build/startup-api.js",
+    "dev": "nodemon startup-api.ts --watch",
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc --project ./"
   },

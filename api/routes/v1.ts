@@ -1,10 +1,10 @@
 import express from 'express';
-import UserTransporter from '../transporters/UserTransporter';
+import MessageTransporter from '../transporters/MessageTransporter';
 const routerV1 = express.Router();
 const versionPath = '/v1';
 
-const userTransporter = new UserTransporter();
-const userRouter = routerV1.route(`${versionPath}/users`);
-userRouter.all(userTransporter.all);
+const messageTransporter = new MessageTransporter();
+const messageRouter = routerV1.route(`${versionPath}/messages`);
+messageRouter.all(messageTransporter.list);
 
 export default routerV1;
