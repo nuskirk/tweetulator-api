@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  server:
+    image: node:16.4.2
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    command: sh -c "yarn && yarn dev"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: Ev26d5VVHJ83XAWVVca
+      MONGO_INITDB_DATABASE: tweetulator
