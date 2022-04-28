@@ -5,22 +5,22 @@ import Database from './database';
 
 dotenv.config();
 
-const server = express();
+const api = express();
 const PORT = process.env.PORT || 3000;
 
 import routes from './api/routes';
 const { routerV1 } = routes;
 
-server.use(bodyParser.urlencoded({
+api.use(bodyParser.urlencoded({
   extended: true
 }))
-server.use(bodyParser.json())
+api.use(bodyParser.json())
 
-server.use('/api', [routerV1]);
+api.use('/api', [routerV1]);
 
 Database.connect();
 
-server.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+api.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   /* tslint:disable-next-line */
   console.log('Error', err);
   return res.status(500).json({
@@ -29,9 +29,9 @@ server.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
-server.listen(PORT, () => {
+api.listen(PORT, () => {
   /* tslint:disable-next-line */
-  console.log("⚡️[server]: Server is running");
+  console.log("⚡️[API]: API server is running");
 });
 
-export default server;
+export default api;

@@ -15,17 +15,17 @@ const messageSchema = new mongoose.Schema<IMessage>(
       type: String,
       required: true,
       validate: {
-        validator(inputValue: string) {
-          if (this.parentId) {
-            return NUMBER_OPERATOR_AND_REGEX.test(inputValue);
-          }
-          return NUMBER_REGEX.test(inputValue);
-        },
         message() {
           if (this.parentId) {
             return 'Should be a number or operator';
           }
           return 'Should be only integer';
+        },
+        validator(inputValue: string) {
+          if (this.parentId) {
+            return NUMBER_OPERATOR_AND_REGEX.test(inputValue);
+          }
+          return NUMBER_REGEX.test(inputValue);
         }
       }
     },

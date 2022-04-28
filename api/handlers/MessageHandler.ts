@@ -12,8 +12,15 @@ export default class MessageHandler implements IMessageHandler {
 
   async list(): Promise<IMessage[]> {
     try {
-      const messages = await this.messageStore.list();
-      return messages;
+      return await this.messageStore.list();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async create(payloadMessage: IMessage): Promise<IMessage> {
+    try {
+      return await this.messageStore.create(payloadMessage);
     } catch (error) {
       throw error;
     }

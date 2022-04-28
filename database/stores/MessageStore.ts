@@ -3,6 +3,10 @@ import IMessage from '../models/interfaces/IMessage';
 import IMessageStore from './interfaces/IMessageStore';
 
 export default class MessageStore implements IMessageStore {
+  async create(payloadMessage: IMessage) {
+    return await Message.create(payloadMessage);
+  };
+
   async list() {
     return await Message.aggregate([
       {
@@ -20,10 +24,5 @@ export default class MessageStore implements IMessageStore {
         }
       }
     ])
-  };
-
-  async create(payloadMessage: IMessage) {
-    const newMessage = new Message(payloadMessage);
-    return await newMessage.save();
   };
 }

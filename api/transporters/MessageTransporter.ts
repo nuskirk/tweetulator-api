@@ -15,4 +15,18 @@ export default class MessageTransporter implements IMessageTransporter {
       return errorResponse(res, error);
     }
   }
+
+  async create (req: Request, res: Response) {
+    try {
+      const { text, writer, parentId } = req.body;
+
+      const messageHandler = new MessageHandler();
+      const newMessage = await messageHandler.create({ text, writer, parentId });
+
+      return successResponse(res, newMessage);
+    } catch (error) {
+      console.error(error)
+      return errorResponse(res, error);
+    }
+  }
 }
