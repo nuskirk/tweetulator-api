@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
       {
-          "src": "./startup-api.js",
+          "src": "./build/startup-api.js",
           "use": "@vercel/node"
       }
   ],

@@ -9,6 +9,8 @@ export default class Database {
       user: process.env.MONGO_USERNAME,
       pass: process.env.MONGO_PASSWORD,
       dbName: process.env.MONGO_DATABASE,
+      retryWrites: true,
+      w: 'majority'
     });
   }
 }
