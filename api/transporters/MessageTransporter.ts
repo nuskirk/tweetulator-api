@@ -11,7 +11,6 @@ export default class MessageTransporter implements IMessageTransporter {
 
       return successResponse(res, messages);
     } catch (error) {
-      console.error(error)
       return errorResponse(res, error);
     }
   }
@@ -25,7 +24,6 @@ export default class MessageTransporter implements IMessageTransporter {
 
       return successResponse(res, newMessage);
     } catch (error) {
-      console.error(error)
       return errorResponse(res, error);
     }
   }
