@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
       {
-          "src": "./build/startup-api.js",
-          "use": "@vercel/node"
+          "src": "startup-api.ts",
+          "use": "@now/node"
       }
   ],
   "routes": [
       {
           "src": "/(.*)",
-          "dest": "/"
+          "dest": "startup-api.ts"
       }
   ]
 }

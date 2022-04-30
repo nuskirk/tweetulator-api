@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import Database from './database';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 import routes from './api/routes';
 const { routerV1 } = routes;
 
+api.use(cors())
 api.use(bodyParser.urlencoded({
   extended: true
 }))
@@ -34,4 +36,4 @@ api.listen(PORT, () => {
   console.log("⚡️[API]: API server is running");
 });
 
-export default api;
+export =  api;
