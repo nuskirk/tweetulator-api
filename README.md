@@ -1,8 +1,11 @@
 # Tweetulator API
 Spec:
 Host URL: https://tweetulator-api.vercel.app/
+
 Get all messages - GET https://tweetulator-api.vercel.app/api/v1/messages
+
 Create a message - POST https://tweetulator-api.vercel.app/api/v1/messages
+
 Payload:
 ```
 {
